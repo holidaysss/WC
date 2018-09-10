@@ -43,7 +43,7 @@ def down_find(dir, hz):
 
 def recursion(value):
     op2 = value[0: 2]  # 第二选项串
-    hz = value[2:]  # 文件后缀参数
+    hz = args[0]  # 文件后缀参数
     dir = os.getcwd()  # 当前路径
     files = down_find(dir, hz)  # 返回相应后缀文件列表
     print("当前目录下符合后缀{}的文件有： {}".format(hz, files_list))
