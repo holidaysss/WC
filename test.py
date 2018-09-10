@@ -63,11 +63,11 @@ def more_data(value):
     end = -1
     lines = open(value, 'r', encoding='utf-8').readlines()
     for i in range(len(lines)):
-        if lines[i].startswith('#') and (i > end):  # 单行注释
+        if '#' in lines[i] and (i > end):  # 单行注释
             comment_line += 1
         elif len(lines[i].strip()) <= 1:  # 空行
             blank_line += 1
-        elif lines[i][0].isalpha() and (i > end):  # 代码行
+        elif lines[i][0].isalpha() and (i > end) and ('#' not in lines[i]):  # 代码行
             code_line += 1
         elif lines[i].startswith('"""') and (i > end):  # 多行注释
             for j in range(i + 1, len(lines)):
